@@ -13,3 +13,10 @@ class Post(models.Model): #из пакета models наследуемся у к
 	date = models.DateTimeField()
 	text = models.TextField()
 	image = models.ImageField(upload_to='event_images/')
+
+	def get_summary(self):
+		return self.text[:70]
+
+	def __str__(self):
+		#функция используется когда Django хочет показать обьекты в админ панели
+		return self.title
